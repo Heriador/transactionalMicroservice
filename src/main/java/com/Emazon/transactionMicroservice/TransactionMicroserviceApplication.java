@@ -1,4 +1,4 @@
-package com.bootcamp2024.transactionMicroservice;
+package com.Emazon.transactionMicroservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
