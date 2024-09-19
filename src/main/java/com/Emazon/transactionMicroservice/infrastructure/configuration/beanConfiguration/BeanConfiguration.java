@@ -5,6 +5,9 @@ import com.Emazon.transactionMicroservice.domain.spi.IAuthenticationPersistenceP
 import com.Emazon.transactionMicroservice.domain.spi.IStockPersistencePort;
 import com.Emazon.transactionMicroservice.domain.spi.ISupplyPersistencePort;
 import com.Emazon.transactionMicroservice.domain.usecases.SupplyUseCases;
+import com.Emazon.transactionMicroservice.infrastructure.configuration.feignConfiguration.IStockFeignClient;
+import com.Emazon.transactionMicroservice.infrastructure.output.feignClient.adapter.StockFeignAdapter;
+import com.Emazon.transactionMicroservice.infrastructure.output.mysql.adapter.AuthenticationAdapter;
 import com.Emazon.transactionMicroservice.infrastructure.output.mysql.adapter.SupplyAdapter;
 import com.Emazon.transactionMicroservice.infrastructure.output.mysql.mapper.SupplyEntityMapper;
 import com.Emazon.transactionMicroservice.infrastructure.output.mysql.repository.ISupplyRepository;
@@ -18,6 +21,7 @@ public class BeanConfiguration {
 
     private final ISupplyRepository supplyRepository;
     private final SupplyEntityMapper supplyEntityMapper;
+    private final IStockFeignClient stockFeignClient;
 
 
     @Bean
@@ -27,12 +31,12 @@ public class BeanConfiguration {
 
     @Bean
     public IAuthenticationPersistencePort authenticationPersistencePort(){
-        return null;
+        return new AuthenticationAdapter();
     }
 
     @Bean
     public IStockPersistencePort stockPersistencePort(){
-        return null;
+        return new StockFeignAdapter(stockFeignClient);
     }
 
 

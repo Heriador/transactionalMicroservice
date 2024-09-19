@@ -1,4 +1,4 @@
-package com.Emazon.transactionMicroservice.application.dto;
+package com.Emazon.transactionMicroservice.application.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,6 +11,6 @@ import lombok.Setter;
 @Setter
 public class SupplyRequest {
 
-    private Long productId;
-    private Long quantity;
+    private Long itemId;
+    private Integer quantity;
 }

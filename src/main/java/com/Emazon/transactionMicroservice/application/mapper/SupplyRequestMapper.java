@@ -1,6 +1,6 @@
 package com.Emazon.transactionMicroservice.application.mapper;
 
-import com.Emazon.transactionMicroservice.application.dto.SupplyRequest;
+import com.Emazon.transactionMicroservice.application.dto.request.SupplyRequest;
 import com.Emazon.transactionMicroservice.domain.model.Supply;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

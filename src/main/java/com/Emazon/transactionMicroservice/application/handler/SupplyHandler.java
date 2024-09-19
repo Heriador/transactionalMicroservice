@@ -1,6 +1,6 @@
 package com.Emazon.transactionMicroservice.application.handler;
 
-import com.Emazon.transactionMicroservice.application.dto.SupplyRequest;
+import com.Emazon.transactionMicroservice.application.dto.request.SupplyRequest;
 import com.Emazon.transactionMicroservice.application.mapper.SupplyRequestMapper;
 import com.Emazon.transactionMicroservice.domain.api.ISupplyServicePort;
 import lombok.RequiredArgsConstructor;

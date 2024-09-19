@@ -24,6 +24,9 @@ public class SupplyEntity {
     private Long itemId;
 
     @Column(nullable = false)
+    private Long userId;
+
+    @Column(nullable = false)
     private Long quantity;
 
     @Column(nullable = false)
