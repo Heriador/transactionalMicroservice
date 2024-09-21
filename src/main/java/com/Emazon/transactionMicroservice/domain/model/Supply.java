@@ -1,6 +1,7 @@
 package com.Emazon.transactionMicroservice.domain.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Supply {
 
@@ -8,19 +9,19 @@ public class Supply {
     private Long userId;
     private Long itemId;
     private Integer quantity;
-    private String status;
-    private Date createdAt;
+    private LocalDateTime createdAt;
+    private LocalDate nextSupplyDate;
 
     public Supply() {
     }
 
-    public Supply(Long id, Long userId, Long itemId, Integer quantity, String status, Date createdAt) {
+    public Supply(Long id, Long userId, Long itemId, Integer quantity, LocalDateTime createdAt, LocalDate nextSupplyDate) {
         this.id = id;
         this.userId = userId;
         this.itemId = itemId;
         this.quantity = quantity;
-        this.status = status;
         this.createdAt = createdAt;
+        this.nextSupplyDate = nextSupplyDate;
     }
 
     public Long getId() {
@@ -47,19 +48,12 @@ public class Supply {
         this.quantity = quantity;
     }
 
-    public String getStatus() {
-        return status;
-    }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Date getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -69,5 +63,13 @@ public class Supply {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public LocalDate getNextSupplyDate() {
+        return nextSupplyDate;
+    }
+
+    public void setNextSupplyDate(LocalDate nextSupplyDate) {
+        this.nextSupplyDate = nextSupplyDate;
     }
 }

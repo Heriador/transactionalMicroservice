@@ -6,6 +6,8 @@ import com.Emazon.transactionMicroservice.domain.api.ISupplyServicePort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 @Service
 @RequiredArgsConstructor
 public class SupplyHandler implements ISupplyHandler{
@@ -17,5 +19,10 @@ public class SupplyHandler implements ISupplyHandler{
     public void addSupply(SupplyRequest supplyRequest) {
 
         supplyServicePort.addSupply(supplyRequestMapper.toSupply(supplyRequest));
+    }
+
+    @Override
+    public LocalDate getNextSupplyDate(Long itemId) {
+        return supplyServicePort.getNextSupplyDate(itemId);
     }
 }

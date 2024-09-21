@@ -7,6 +7,8 @@ import com.Emazon.transactionMicroservice.infrastructure.output.mysql.repository
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+
 @RequiredArgsConstructor
 @Transactional
 public class SupplyAdapter implements ISupplyPersistencePort {
@@ -17,5 +19,11 @@ public class SupplyAdapter implements ISupplyPersistencePort {
     @Override
     public void addSupply(Supply supply) {
         supplyRepository.save(supplyEntityMapper.toEntity(supply));
+    }
+
+    @Override
+    public LocalDate getNextSupplyDate(Long itemId) {
+
+        return supplyRepository.getNextSupplyDateByItemId(itemId);
     }
 }

@@ -1,4 +1,4 @@
-package com.Emazon.transactionMicroservice.infrastructure.configuration.excepcionHandler;
+package com.Emazon.transactionMicroservice.domain.exception;
 
 public class ItemNotFoundException extends RuntimeException {
     public ItemNotFoundException(String message) {

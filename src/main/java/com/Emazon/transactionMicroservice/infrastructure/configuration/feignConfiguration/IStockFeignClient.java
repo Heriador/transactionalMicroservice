@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.Emazon.transactionMicroservice.infrastructure.configuration.util.FeignConstant;
+import com.Emazon.transactionMicroservice.infrastructure.configuration.util.FeignConstants;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = FeignConstant.STOCK_MICROSERVICE, url = FeignConstant.STOCK_MICROSERVICE_URL, configuration = FeignConfiguration.class)
+@FeignClient(name = FeignConstants.STOCK_MICROSERVICE, url = FeignConstants.STOCK_MICROSERVICE_URL, configuration = FeignConfiguration.class)
 public interface IStockFeignClient {
 
-    @GetMapping("/item/{itemId}")
+    @GetMapping(FeignConstants.EXISTS_ITEM_BY_ID_ROUTE)
     boolean existsById(@PathVariable Long itemId);
 
-    @PatchMapping(value = "/item/stock/{itemId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PatchMapping(value = FeignConstants.ADD_STOCK_ROUTE, consumes = MediaType.APPLICATION_JSON_VALUE)
     void addStock(@PathVariable Long itemId, @RequestBody AddStockRequest addStockRequest);
 }
