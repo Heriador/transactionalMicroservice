@@ -10,7 +10,7 @@ public interface SupplyRequestMapper {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "userId", ignore = true)
-    @Mapping(target = "status", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     Supply toSupply(SupplyRequest supplyRequest);
+
 }

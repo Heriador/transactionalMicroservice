@@ -1,20 +1,17 @@
 package com.Emazon.transactionMicroservice.infrastructure.configuration.feignConfiguration.interceptor;
 
+import com.Emazon.transactionMicroservice.infrastructure.configuration.util.FeignConstants;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
-
-import java.util.Objects;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 public class JwtRequestInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate requestTemplate) {
-        HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
 
-        String jwt = request.getHeader("Authorization");
+        String jwt = SecurityContextHolder.getContext().getAuthentication().getCredentials().toString();
 
-        requestTemplate.header("Authorization",jwt);
+
+        requestTemplate.header(FeignConstants.AUTHORIZATION_HEADER, FeignConstants.TOKEN_PREFIX+jwt);
     }
 }

@@ -6,7 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -27,9 +28,12 @@ public class SupplyEntity {
     private Long userId;
 
     @Column(nullable = false)
-    private Long quantity;
+    private Integer quantity;
 
     @Column(nullable = false)
-    private Date createdAt;
+    private LocalDateTime createdAt;
+
+    @Column(nullable = false)
+    private LocalDate nextSupplyDate;
 
 }

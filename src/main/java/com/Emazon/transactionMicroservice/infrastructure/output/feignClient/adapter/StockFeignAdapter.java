@@ -17,15 +17,22 @@ public class StockFeignAdapter implements IStockPersistencePort {
        try {
             return stockFeignClient.existsById(itemId);
         }
-        catch(FeignException.NotFound e) {
+        catch(FeignException.NotFound e){
             return false;
         }
 
     }
 
     @Override
-    public void addStock(Long itemId, Integer quantity) {
-        AddStockRequest addStockRequest = new AddStockRequest(quantity);
-        stockFeignClient.addStock(itemId, addStockRequest);
+    public Boolean addStock(Long itemId, Integer quantity) {
+        try{
+            AddStockRequest addStockRequest = new AddStockRequest(quantity);
+            stockFeignClient.addStock(itemId, addStockRequest);
+
+            return true;
+        }
+        catch (FeignException.BadRequest e){
+             return false;
+        }
     }
 }
