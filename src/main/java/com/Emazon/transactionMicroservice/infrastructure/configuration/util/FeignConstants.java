@@ -10,10 +10,15 @@ public class FeignConstants {
 
     public static final String EXISTS_ITEM_BY_ID_ROUTE = "/item/{itemId}";
     public static final String ADD_STOCK_ROUTE = "/item/stock/{itemId}";
+    public static final String GET_PRICE_BY_ID_ROUTE = "/item/price/{itemId}";
+
 
     public static final String TOKEN_PREFIX = "Bearer ";
     public static final String AUTHORIZATION_HEADER = "Authorization";
-    public static final String GET_CART_ROUTE = "/cart/{cartId}";
+    public static final String GET_CART_ROUTE = "/cart/get-items";
+    public static final String HAS_STOCK_ROUTE = "/item/{itemId}/{quantity}";
+    public static final String REMOVE_STOCK_ROUTE = "/item/stock/sale/{itemId}";
+
 
     private FeignConstants() {
     }

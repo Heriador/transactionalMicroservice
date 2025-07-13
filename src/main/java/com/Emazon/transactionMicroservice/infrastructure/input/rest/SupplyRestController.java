@@ -4,6 +4,7 @@ import com.Emazon.transactionMicroservice.application.dto.request.SupplyRequest;
 import com.Emazon.transactionMicroservice.application.handler.ISupplyHandler;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -23,10 +24,10 @@ public class SupplyRestController {
     @PreAuthorize(HAS_ROLE_WAREHOUSE_ASSISTANT)
     @PostMapping(ADD_SUPPLY_ROUTE)
     public ResponseEntity<Void> addSupply(@RequestBody @Valid SupplyRequest supplyRequest) {
-
+        System.out.println(supplyRequest);
         supplyHandler.addSupply(supplyRequest);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping("/nextSupplyDate/{itemId}")

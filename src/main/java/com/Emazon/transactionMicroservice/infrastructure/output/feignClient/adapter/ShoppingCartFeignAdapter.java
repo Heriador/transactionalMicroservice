@@ -14,6 +14,6 @@ public class ShoppingCartFeignAdapter implements IShoppingCartPersistencePort {
 
     @Override
     public List<CartDetails> getCartItems(Long userId) {
-        return List.of();
+        return shoppingCartFeignClient.getCartItems(userId);
     }
 }

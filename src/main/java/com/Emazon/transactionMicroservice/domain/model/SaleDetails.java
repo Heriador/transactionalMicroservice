@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class SaleDetails {
 
     private Long id;
-    private Long saleId;
+    private Sale sale;
     private Long itemId;
     private Integer quantity;
     private BigDecimal price;
@@ -14,9 +14,9 @@ public class SaleDetails {
     public SaleDetails() {
     }
 
-    public SaleDetails(Long id, Long saleId, Long itemId, Integer quantity, BigDecimal price, BigDecimal subTotal) {
+    public SaleDetails(Long id, Sale sale, Long itemId, Integer quantity, BigDecimal price, BigDecimal subTotal) {
         this.id = id;
-        this.saleId = saleId;
+        this.sale = sale;
         this.itemId = itemId;
         this.quantity = quantity;
         this.price = price;
@@ -31,12 +31,12 @@ public class SaleDetails {
         this.id = id;
     }
 
-    public Long getSaleId() {
-        return saleId;
+    public Sale getSale() {
+        return sale;
     }
 
-    public void setSaleId(Long saleId) {
-        this.saleId = saleId;
+    public void setSale(Sale sale) {
+        this.sale = sale;
     }
 
     public Long getItemId() {
@@ -67,7 +67,7 @@ public class SaleDetails {
         return subTotal;
     }
 
-    public void setSubTotal(BigDecimal subTotal) {
-        this.subTotal = subTotal;
+    public void calculateSubTotal() {
+        this.subTotal = this.price.multiply(BigDecimal.valueOf(this.quantity));
     }
 }

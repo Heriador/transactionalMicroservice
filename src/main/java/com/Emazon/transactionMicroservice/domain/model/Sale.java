@@ -57,7 +57,8 @@ public class Sale {
         return total;
     }
 
-    public void setTotal(BigDecimal total) {
-        this.total = total;
+    public void calculateTotal() {
+        BigDecimal tempTotal = items.stream().map(SaleDetails::getSubTotal).reduce(BigDecimal.ZERO, BigDecimal::add);
+        this.total = tempTotal;
     }
 }

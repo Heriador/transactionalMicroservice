@@ -35,12 +35,10 @@ public class SaleDetailsEntity {
     private BigDecimal price;
 
     @Column(nullable = false)
-    private BigDecimal subtotal;
+    private BigDecimal subTotal;
 
-    public BigDecimal calculateSubtotal() {
-        setSubtotal(price.multiply(BigDecimal.valueOf(quantity)));
-
-        return getSubtotal();
+    public void calculateSubTotal() {
+        setSubTotal(price.multiply(BigDecimal.valueOf(quantity)));
     }
 
 }

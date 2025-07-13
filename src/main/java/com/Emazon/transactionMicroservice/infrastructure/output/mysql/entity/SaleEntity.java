@@ -26,11 +26,11 @@ public class SaleEntity {
     @Column(nullable = false)
     private Long userId;
 
-    @Column(nullable = false)
-    private Long cartId;
+//    @Column(nullable = false)
+//    private Long cartId;
 
-    @Column(nullable = false)
-    private Long reportId;
+//    @Column(nullable = false)
+//    private Long reportId;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
@@ -41,9 +41,8 @@ public class SaleEntity {
     @Column(nullable = false)
     private BigDecimal total;
 
-    public BigDecimal calculateTotal() {
-        BigDecimal tempTotal = items.stream().map(SaleDetailsEntity::calculateSubtotal).reduce(BigDecimal.ZERO, BigDecimal::add);
+    public void calculateTotal() {
+        BigDecimal tempTotal = items.stream().map(SaleDetailsEntity::getSubTotal).reduce(BigDecimal.ZERO, BigDecimal::add);
         setTotal(tempTotal);
-        return tempTotal;
     }
 }

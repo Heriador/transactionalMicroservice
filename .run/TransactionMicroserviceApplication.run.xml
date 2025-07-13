@@ -3,7 +3,7 @@
     <envs>
       <env name="JWT_SECRET_KEY" value="clave super segura para el security" />
       <env name="DB_URL" value="jdbc:mysql://localhost:3306/transaction_microservice" />
-      <env name="PORT" value="8081" />
+      <env name="PORT" value="9081" />
       <env name="username" value="root" />
       <env name="password" value="angel500" />
     </envs>

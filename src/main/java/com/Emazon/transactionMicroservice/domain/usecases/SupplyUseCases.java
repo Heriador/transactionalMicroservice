@@ -29,6 +29,7 @@ public class SupplyUseCases implements ISupplyServicePort {
 
         Long userId = authenticationPersistencePort.getAuthenticatedUserId();
         supply.setUserId(userId);
+        System.out.println(supply);
 
         if(!stockPersistencePort.existsItem(supply.getItemId())){
             throw new ItemNotFoundException(DomainConstants.ITEM_NOT_FOUND_EXCEPTION_MESSAGE);
